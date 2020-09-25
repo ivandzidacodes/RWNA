@@ -1,7 +1,7 @@
-<h2>Za demonstraciju koristim pretragu korisnika po emp_no. Pretražujemo korisnika sa emp_no = 1 <br/>
-Ukoliko korisnik ne proslijedi username i password dobiti će "Unauthorized" poruku. Što možemo vidjeti na 1. i 2. slici <br/>
+<h3>Za demonstraciju koristim pretragu korisnika po emp_no. Pretražujemo korisnika sa emp_no = 1 <br/>
+Ukoliko korisnik ne proslijedi username i password dobiti će "Unauthorized" poruku. Što možemo vidjeti na 1. i 2. slici.
 Kada korisnik unese odgovarajući username i password dobiva normalan response, što možemo vidjeti na slici 3 i 4.
-</h2>
+</h3>
 
 <h2> 1. slika</h2>
 
