@@ -1,5 +1,5 @@
 
-<h3>Primjer autentifikacije preko Google racuna</h3>
+<h3>Primjer autentifikacije preko Google računa.</h3>
 
 ![ ](images/google_1.PNG)
 
