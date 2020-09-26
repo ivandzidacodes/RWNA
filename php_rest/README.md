@@ -9,9 +9,15 @@
   
  ![ ](images/rest_2.PNG)
  
+ <h4>Create new employee<h4>
+  
  ![ ](images/rest_3.PNG)
  
  
+ <h4>Update employee<h4>
+  
  ![ ](images/rest_4.PNG)
+ 
+ <h4>Delete employee<h4>
  
  ![ ](images/rest_5.PNG)
