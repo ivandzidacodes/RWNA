@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="EmployeesList" targetNamespace="urn:EmployeesList" xmlns:tns="urn:EmployeesList"  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Employees">
+      <xsd:element name="getEmployeeName" type="xsd:string" />
+	   <xsd:element name="getDateFrom" type="xsd:string" />
+      <xsd:element name="getDateTo" type="xsd:string" />
+
+    <xsd:complexType name='return'>
+      <xsd:complexContent>
+      <xsd:restriction base='soapenc:Array'>
+        <xsd:attribute wsdl:arrayType='Employees[]' ref='soapenc:arrayType' />
+      </xsd:restriction>
+    </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='Employees'>
+      <xsd:all>
+            <xsd:element
+              name='emp_no'
+              type='xsd:string'/>
+            <xsd:element
+              name='first_name'
+              type='xsd:string'/>
+            <xsd:element
+              name='last_name'
+              type='xsd:string'/>
+            <xsd:element
+              name='dept_name'
+              type='xsd:string'/>
+            <xsd:element
+              name='from_date'
+              type='xsd:string'/>
+            <xsd:element
+              name='to_date'
+              type='xsd:string'/>
+      </xsd:all>
+    </xsd:complexType>
+	</xsd:schema>
+  </types>
+
+  <message name="getEmployees">
+    <part name="employeeName" type="tns:getEmployeeName" />
+	 <part name="dateFrom" type="tns:getDateFrom" />
+    <part name="dateTo" type="tns:getDateTo" />
+  </message>
+  
+  <message name="getEmployeesResponse">
+    <part name="return" type="tns:return" />
+  </message>
+
+  <portType name="EmployeesPort">
+    <operation name="getEmployees">
+	  <input message="tns:getEmployees" />
+	  <output message="tns:getEmployeesResponse" />
+	</operation>
+  </portType>
+
+  <binding name="EmployeesBinding" type="tns:EmployeesPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+	  <operation name="getEmployees">
+	    <soap:operation soapAction="urn:EmployeesAction" />
+		<input>
+		  <soap:body use="encoded" namespace="urn:Employees" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+		</input>
+		<output>
+		  <soap:body use="encoded" namespace="urn:Employees" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+		</output>
+	  </operation>
+  </binding>
+
+  <service name="EmployeesService">
+    <port name="EmployeesPort" binding="tns:EmployeesBinding">
+	  <soap:address location="http://localhost/2_wsdl_php_php/server.php" />
+	</port>
+  </service>
+
+</definitions>
